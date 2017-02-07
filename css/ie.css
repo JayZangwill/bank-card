@@ -1,0 +1,10 @@
+body{
+	background: none;
+}
+.my-container{
+	display: none;
+}
+.ie{
+	text-align: center;
+	font-size: 30px;
+}

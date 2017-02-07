@@ -1,0 +1,68 @@
+body {
+	padding-top: 100px;
+}
+
+#container {
+	opacity: 0;
+}
+
+.container h2 {
+	text-align: center;
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+.buttons {
+	width: 475px;
+	background-color: rgba(0, 0, 0, 0.8);
+	margin: 0 auto;
+}
+
+.buttons:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+.buttons button {
+	width: 90%;
+	float: left;
+	margin: 15px 20px;
+}
+
+#warnDeposit,
+#errorDeposit,
+#deposit #success,
+#warnDraw,
+#errorDraw,
+#draw #success,
+#more {
+	display: none;
+	width: 94%;
+	padding: 10px;
+}
+
+.relative {
+	position: relative;
+}
+
+.absoute {
+	position: absolute;
+}
+
+@media screen and (max-width:768px) {
+	#warnDeposit,
+	#errorDeposit,
+	#deposit #success,
+	#warnDraw,
+	#errorDraw,
+	#draw #success,
+	#more {
+		width: 96%;
+	}
+	.buttons {
+		width: 100%;
+	}
+}

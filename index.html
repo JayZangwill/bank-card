@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>银行卡存取款系统</title>
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/index.css">
+		<!--[if lt IE 9]>
+     	<link rel="stylesheet" href="css/ie.css">
+		<script>
+			window.onload = function() {
+				var asd = document.getElementsByTagName("body")[0].innerHTML="<div class='ie'>您的浏览器版本太低，请及时更新浏览器！</div>";
+			}
+		</script>
+    <![endif]-->
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?657866367db4aa3346c555211ea1193c";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+	</head>
+
+	<body>
+		<div class="container my-container">
+			<h1>银行卡存取款系统</h1>
+			<!--登录框-->
+			<div class="row">
+				<div class="my-border" id="logCantainer">
+					<h2 class="text-center">登录</h2>
+					<form class="form-horizontal" id="login">
+						<div class="form-group relative">
+							<label for="idCard" class="col-sm-3 control-label">身份证号：</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="idCard" placeholder="身份证号">
+							</div>
+							<div class="alert alert-danger absoutle" id="idError" role="alert">请填入正确的18位身份证号</div>
+							<div class="alert alert-danger absoutle" id="nofound" role="alert">此身份证没有注册，请注册！</div>
+						</div>
+						<div class="form-group relative">
+							<label for="password" class="col-sm-3 control-label">密码：</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" id="password" placeholder="密码">
+							</div>
+							<div class="alert alert-danger absoutle" id="passError" role="alert">密码至少由6位字符组成且不能含有空格</div>
+							<div class="alert alert-danger absoutle" id="nopass" role="alert">密码错误，请重新输入</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="button" class="btn btn-success pull-left" id="go">登录</button>
+								<button type="button" class="btn btn-info pull-right" id="registerBtn">注册</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--/登录框-->
+			<!--注册框-->
+			<div class="row hidden" id="hidden">
+				<div class="my-border" id="regCantainer">
+					<h2 class="text-center">注册</h2>
+					<form class="form-horizontal" id="register">
+						<div class="form-group relative">
+							<label for="regIdCard" class="col-sm-3 control-label">身份证号：</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="regIdCard" placeholder="身份证号">
+							</div>
+							<div class="alert alert-danger absoutle" id="regIdError" role="alert">请填入正确的18位身份证号</div>
+							<div class="alert alert-danger absoutle" id="repeat" role="alert">这个身份证号已经注册过了</div>
+						</div>
+						<div class="form-group relative">
+							<label for="regPassword" class="col-sm-3 control-label">密码：</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" id="regPassword" placeholder="密码">
+							</div>
+							<div class="alert alert-danger absoutle" id="regPassError" role="alert">密码至少由6位字符组成且不能含有空格</div>
+						</div>
+						<div class="form-group relative">
+							<label for="conPassword" class="col-sm-3 control-label">确认密码：</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" id="conPassword" placeholder="确认密码">
+							</div>
+							<div class="alert alert-danger absoutle" id="conPassError" role="alert">两次输入密码不一致</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="button" id="regGo" class="btn btn-success pull-left">注册</button>
+								<button type="button" id="back" class="btn btn-info pull-right">返回</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--/注册框-->
+		</div>
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+
+</html>

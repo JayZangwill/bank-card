@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>请选择您需要的业务</title>
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/home.css">
+		<!--[if lt IE 9]>
+     	<link rel="stylesheet" href="css/ie.css">
+		<script>
+			window.onload = function() {
+				var asd = document.getElementsByTagName("body")[0].innerHTML="<div class='ie'>您的浏览器版本太低，请及时更新浏览器！</div>";
+			}
+		</script>
+    <![endif]-->
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?657866367db4aa3346c555211ea1193c";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+	</head>
+
+	<body>
+		<div class="container" id="container">
+			<h2>请选择您需要的业务</h2>
+			<div class="row">
+				<div class="buttons">
+					<button class="btn btn-success" data-toggle="modal" data-target="#search"><i class="glyphicon glyphicon-search"></i>查询余额</button>
+					<button class="btn btn-info" data-toggle="modal" data-target="#deposit"><i class="glyphicon glyphicon-arrow-up"></i>实时存款</button>
+					<button class="btn btn-warning" data-toggle="modal" data-target="#draw"><i class="glyphicon glyphicon-arrow-down"></i>实时取款</button>
+					<button class="btn btn-danger" id="out"><i class="glyphicon glyphicon-off"></i>退出</button>
+				</div>
+			</div>
+		</div>
+		<!--查询余额框-->
+		<div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">我知道了</span></button>
+						<h4 class="modal-title" id="myModalLabel">查询余额</h4>
+					</div>
+					<div class="modal-body">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal">我知道了</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/查询余额框-->
+		<!--实时存款框-->
+		<div class="modal fade" id="deposit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">存款</span></button>
+						<h4 class="modal-title" id="myModalLabel">实时存款</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group relative">
+								<label for="depositCount" class="col-sm-2 control-label">存款数</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="depositCount" placeholder="请输入小于10000大于0的数字,不能有空格,小数将会被向下取整">
+									<div class="alert alert-warning absoute" id="warnDeposit" role="alert">请输入小于10000大于0的数字，数字前面和中间中间不能有空格,小数将会被向下取整</div>
+									<div class="alert alert-danger absoute" id="errorDeposit" role="alert">请输入小于10000大于0的数字，不能有空格</div>
+									<div class="alert alert-success absoute" id="success" role="alert"></div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" id="saveMoney" class="btn btn-success">存款</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/实时存款框-->
+		<!--实时取款框-->
+		<div class="modal fade" id="draw" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">取款</span></button>
+						<h4 class="modal-title" id="myModalLabel">实时取款</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group relative">
+								<label for="depositCount" class="col-sm-2 control-label">存款数</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="drawCount" placeholder="请输入小于10000大于0的数字,不能有空格,小数将会被向下取整">
+									<div class="alert alert-warning absoute" id="warnDraw" role="alert">请输入小于10000大于0的数字，数字前面和中间中间不能有空格,小数将会被向下取整</div>
+									<div class="alert alert-danger absoute" id="errorDraw" role="alert">请输入小于10000大于0的数字，不能有空格</div>
+									<div class="alert alert-success absoute" id="success" role="alert"></div>
+									<div class="alert alert-danger absoute" id="more" role="alert"></div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-success" id="getMoney">取款</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/实时取款框-->
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/home.js"></script>
+	</body>
+
+</html>

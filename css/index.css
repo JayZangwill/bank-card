@@ -1,0 +1,73 @@
+.my-info {
+	position: absolute;
+	top: 35px;
+	left: 10px;
+	color: #fff;
+	margin-top: -30px;
+}
+
+.my-container h1 {
+	font-size: 34px;
+	text-align: center;
+	color: #fff;
+}
+
+.my-border {
+	color: #fff;
+	width: 475px;
+	padding: 30px;
+	margin: 30px auto;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.my-border:hover {
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.relative {
+	position: relative;
+}
+
+.absoutle {
+	position: absolute;
+}
+
+#idError,
+#passError,
+#regIdError,
+#regPassError,
+#conPassError,
+#repeat,
+#nofound,
+#nopass {
+	display: none;
+	width: 69%;
+	padding: 10px;
+	top: -100%;
+	left: 28%;
+	z-index: 1;
+}
+
+.hidden .my-border {
+	height: 0;
+}
+
+@media screen and (max-width:768px) {
+	.my-border {
+		width: 100%;
+	}
+	#idError,
+	#passError,
+	#regIdError,
+	#regPassError,
+	#conPassError,
+	#repeat,
+	#nofound,
+	#nopass {
+		width: 100%;
+		left: 0;
+		top: -30%;
+	}
+}
