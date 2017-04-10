@@ -12,11 +12,11 @@ $(function() {
 	}, 800);
 	/*查询余额*/
 	$("#search").on("show.bs.modal", function() {
-		$.get("http://www.jayzangwill.cn:1337/findmoney", function(message) {
+		$.get("http://localhost/findmoney", function(message) {
 			if(message.message === "nologin") {
 				$("#search .modal-body").html("您还没登陆,请返回登录");
 				$("#search").on("hidden.bs.modal", function() {
-					window.location = "http://www.jayzangwill.cn/bank-card/index.html";
+					window.location = "index.html";
 				});
 				return;
 			}
@@ -34,19 +34,25 @@ $(function() {
 			var money = $("#depositCount").val(),
 				data = "money=" + money;
 			clearTimeout(time);
-			$.post("http://www.jayzangwill.cn:1337/deposit", data, function(message) {
+			$.post("http://localhost/deposit", data, function(message) {
 				if(message.message === "nologin") {
-					alert("您还没登录,请返回登录!");
-					window.location = "http://www.jayzangwill.cn/bank-card/index.html";
+					alert("您还没登陆,请返回登录");
+					window.location = "index.html";
 					return;
 				}
-				$("#deposit #success").html("您已成功存取" + message.message + "元,点击存储继续存钱").fadeIn();
+				$("#deposit #success").html("您已成功存了" + message.message + "元,点击存款继续存钱").fadeIn();
 				time = setTimeout(function() {
 					$("#deposit #success").fadeOut();
 				}, 1500);
 			});
 		} else {
 			return;
+		}
+	});
+	$("#depositCount").on('keydown', function(e) {
+		if(e.keyCode === 13) {
+			e.preventDefault();
+			$("#saveMoney").trigger('click');
 		}
 	});
 	/*取钱*/
@@ -56,14 +62,14 @@ $(function() {
 			var money = $("#drawCount").val(),
 				data = "money=" + money;
 			clearTimeout(time);
-			$.post("http://www.jayzangwill.cn:1337/draw", data, function(message) {
-					if(message.message === "nologin") {
-						alert("您还没登录,请返回登录!");
-						window.location = "http://www.jayzangwill.cn/bank-card/index.html";
-						return;
-					}
+			$.post("http://localhost/draw", data, function(message) {
+				if(message.message === "nologin") {
+					alert("您还没登陆,请返回登录");
+					window.location = "index.html";
+					return;
+				}
 				if(typeof message.message === "number") {
-					$("#draw #success").html("您已成功取出" + message.message + "元,点击存储继续存钱").fadeIn();
+					$("#draw #success").html("您已成功取出" + message.message + "元,点击取款继续取钱").fadeIn();
 					time = setTimeout(function() {
 						$("#draw #success").fadeOut();
 					}, 1500);
@@ -78,7 +84,14 @@ $(function() {
 			return;
 		}
 	});
+	$("#drawCount").on('keydown', function(e) {
+		if(e.keyCode === 13) {
+			e.preventDefault();
+			$("#getMoney").trigger('click');
+		}
+	});
 	$("#out").on("click", function() {
+		$.get('http://localhost/out');
 		window.location = "index.html";
 	});
 	//用户激活某个输入框时

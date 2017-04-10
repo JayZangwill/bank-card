@@ -111,7 +111,7 @@ $(function() {
 			var idValue = $("#regIdCard").val(),
 				passwordValue = $("#conPassword").val(),
 				data = "idCard=" + idValue + "&" + "password=" + passwordValue + "&" + "money=0";
-			$.post("http://www.jayzangwill.cn:1337/reg", data, function(message) {
+			$.post("http://localhost/reg", data, function(message) {
 				if(message.message === "repeat") {
 					$("#repeat").fadeIn();
 				} else if(message.message === "success") {
@@ -130,7 +130,7 @@ $(function() {
 			var idValue = $("#idCard").val(),
 				passwordValue = $("#password").val(),
 				data = "idCard=" + idValue + "&" + "password=" + passwordValue;
-			$.post("http://www.jayzangwill.cn:1337/log", data, function(message) {
+			$.post("http://localhost/log", data, function(message) {
 				if(message.message == "nofound") {
 					$("#nofound").fadeIn();
 				} else if(message.message === "password error") {

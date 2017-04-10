@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "description": "Bank card access system",
   "main": "app.html",
-  "window":{
-	  "min_width":320
+  "window": {
+    "min_width": 320
   },
   "scripts": {
     "test": "node app.js"
   },
   "author": "Jay Zangwill",
   "devDependencies": {
-	"bootstrap": "^3.3.7",
-	"jquery": "^3.1.1",
-    "mime": "^1.3.4",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "jquery": "^3.1.1",
     "mongodb": "^2.2.12"
   },
-  "webkit":{
-	  "plugin":true
+  "webkit": {
+    "plugin": true
   }
 }
