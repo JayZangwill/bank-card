@@ -12,7 +12,7 @@ $(function() {
 	}, 800);
 	/*查询余额*/
 	$("#search").on("show.bs.modal", function() {
-		$.get("http://localhost/findmoney", function(message) {
+		$.get("/findmoney", function(message) {
 			if(message.message === "nologin") {
 				$("#search .modal-body").html("您还没登陆,请返回登录");
 				$("#search").on("hidden.bs.modal", function() {
@@ -34,7 +34,7 @@ $(function() {
 			var money = $("#depositCount").val(),
 				data = "money=" + money;
 			clearTimeout(time);
-			$.post("http://localhost/deposit", data, function(message) {
+			$.post("/deposit", data, function(message) {
 				if(message.message === "nologin") {
 					alert("您还没登陆,请返回登录");
 					window.location = "index.html";
@@ -62,7 +62,7 @@ $(function() {
 			var money = $("#drawCount").val(),
 				data = "money=" + money;
 			clearTimeout(time);
-			$.post("http://localhost/draw", data, function(message) {
+			$.post("/draw", data, function(message) {
 				if(message.message === "nologin") {
 					alert("您还没登陆,请返回登录");
 					window.location = "index.html";
@@ -91,7 +91,7 @@ $(function() {
 		}
 	});
 	$("#out").on("click", function() {
-		$.get('http://localhost/out');
+		$.get('/out');
 		window.location = "index.html";
 	});
 	//用户激活某个输入框时
